@@ -10,43 +10,30 @@ var artists = Object.keys(jukeboxSongs);
 var theArtist = artists[Math.floor(Math.random()) * artists.length];
 var songToPlay = jukeboxSongs[theArtist];
 
-function randomNumber() {
-  return Math.floor(Math.random());
-}
-
 function menu() {
-  $('#menu').on('click', handleMenuClick);
-}
-
-function handleMenuClick() {
-  $('#menuOptions').html("You can play a song, pause a song, or view all the songs");
+  $('#menu').on('click', function(){
+    $('#menuOptions').html("You can play a song, pause a song, or view all the songs");
+  });
 }
 
 function play() {
-  $('#play').on('click', handlePlayClick);
-}
-
-function handlePlayClick() {
-  $('#songPlaying').html("now playing " + songToPlay + " by " + theArtist);
-  return "now playing " + songToPlay + " by " + theArtist;
+  $('#play').on('click', function(){
+    $('#songPlaying').html("now playing " + songToPlay + " by " + theArtist);
+  });
 }
 
 function pause() {
-  $('#pause').on('click', handlePauseClick);
-}
-
-function handlePauseClick() {
-  $('#songPaused').html(songToPlay + " is paused");
+  $('#pause').on('click', function(){
+    $('#songPaused').html(songToPlay + " is paused");
+  });
 }
 
 function show() {
-  $('#show').on('click', handleShowClick);
-}
-
-function handleShowClick() {
-  var songs = "";
-  for (var key in jukeboxSongs) {
-    songs += jukeboxSongs[key] + " by " + key +  " is available to play. "
-  }
-  $('#showSongs').html(songs);
+  $('#show').on('click', function(){
+    var songs = "";
+    for (var key in jukeboxSongs) {
+      songs += jukeboxSongs[key] + " by " + key +  " is available to play. "
+    }
+    $('#showSongs').html(songs);
+  });
 }
